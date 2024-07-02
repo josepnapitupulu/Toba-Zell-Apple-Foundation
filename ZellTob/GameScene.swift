@@ -1,10 +1,3 @@
-//
-//  GameScene.swift
-//  ZellTob
-//
-//  Created by Foundation-013 on 01/07/24.
-//
-
 import SpriteKit
 import GameplayKit
 
@@ -24,7 +17,7 @@ class GameScene: SKScene {
         
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        self.spinnyNode = SKShapeNode(rectOf: CGSize(width: w, height: w), cornerRadius: w * 0.3)
         
         if let spinnyNode = self.spinnyNode {
             spinnyNode.lineWidth = 2.5
@@ -35,7 +28,6 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
     }
-    
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -80,7 +72,6 @@ class GameScene: SKScene {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
