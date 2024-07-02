@@ -42,4 +42,17 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    func test() {
+        // set TRUE to key card_1
+        UserDefaults.standard.setValue(false, forKey: "card_1")
+        UserDefaults.standard.setValue(false, forKey: "card_2")
+        UserDefaults.standard.setValue(false, forKey: "card_3")
+        UserDefaults.standard.setValue(false, forKey: "card_4")
+        UserDefaults.standard.setValue(false, forKey: "card_5")
+        
+        
+        // ambil value dari key card_1
+        UserDefaults.standard.bool(forKey: "card_1")
+    }
 }

@@ -15,6 +15,10 @@
 		F33102D42C32A9BB004A1362 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F33102D32C32A9BB004A1362 /* Base */; };
 		F33102D62C32A9BC004A1362 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33102D52C32A9BC004A1362 /* Assets.xcassets */; };
 		F33102D92C32A9BC004A1362 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F33102D82C32A9BC004A1362 /* Base */; };
+		F33102E02C32BDBF004A1362 /* PuzzelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33102DF2C32BDBF004A1362 /* PuzzelViewController.swift */; };
+		F33102E22C32C05A004A1362 /* PuzzleSceen.sks in Resources */ = {isa = PBXBuildFile; fileRef = F33102E12C32C05A004A1362 /* PuzzleSceen.sks */; };
+		F3353F8C2C32FFA300426BC1 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3353F8B2C32FFA300426BC1 /* music.mp3 */; };
+		F3353F8E2C3313FB00426BC1 /* PuzzleSceen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3353F8D2C3313FB00426BC1 /* PuzzleSceen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		F33102D32C32A9BB004A1362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F33102D52C32A9BC004A1362 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33102D82C32A9BC004A1362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F33102DF2C32BDBF004A1362 /* PuzzelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzelViewController.swift; sourceTree = "<group>"; };
+		F33102E12C32C05A004A1362 /* PuzzleSceen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PuzzleSceen.sks; sourceTree = "<group>"; };
+		F3353F8B2C32FFA300426BC1 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		F3353F8D2C3313FB00426BC1 /* PuzzleSceen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleSceen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +72,13 @@
 				F33102CC2C32A9BB004A1362 /* Actions.sks */,
 				F33102CE2C32A9BB004A1362 /* GameScene.swift */,
 				F33102D02C32A9BB004A1362 /* GameViewController.swift */,
+				F33102DF2C32BDBF004A1362 /* PuzzelViewController.swift */,
+				F33102E12C32C05A004A1362 /* PuzzleSceen.sks */,
+				F3353F8D2C3313FB00426BC1 /* PuzzleSceen.swift */,
 				F33102D22C32A9BB004A1362 /* Main.storyboard */,
 				F33102D52C32A9BC004A1362 /* Assets.xcassets */,
 				F33102D72C32A9BC004A1362 /* LaunchScreen.storyboard */,
+				F3353F8B2C32FFA300426BC1 /* music.mp3 */,
 			);
 			path = ZellTob;
 			sourceTree = "<group>";
@@ -129,7 +141,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F33102E22C32C05A004A1362 /* PuzzleSceen.sks in Resources */,
 				F33102CB2C32A9BB004A1362 /* GameScene.sks in Resources */,
+				F3353F8C2C32FFA300426BC1 /* music.mp3 in Resources */,
 				F33102D42C32A9BB004A1362 /* Base in Resources */,
 				F33102D62C32A9BC004A1362 /* Assets.xcassets in Resources */,
 				F33102CD2C32A9BB004A1362 /* Actions.sks in Resources */,
@@ -144,8 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3353F8E2C3313FB00426BC1 /* PuzzleSceen.swift in Sources */,
 				F33102CF2C32A9BB004A1362 /* GameScene.swift in Sources */,
 				F33102D12C32A9BB004A1362 /* GameViewController.swift in Sources */,
+				F33102E02C32BDBF004A1362 /* PuzzelViewController.swift in Sources */,
 				F33102C92C32A9BB004A1362 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
