@@ -1,9 +1,12 @@
 import UIKit
 import SpriteKit
+import ImageIO
 
 class PuzzleSceen: SKScene {
     
     var selectedNodes = [SKSpriteNode]()
+    var matchedPairs = 0
+    let totalPairs = 10 // Sesuaikan dengan jumlah total pasangan gambar yang ada dalam puzzle
     
     override func didMove(to view: SKView) {
         // Tambahan konfigurasi jika diperlukan
@@ -68,6 +71,7 @@ class PuzzleSceen: SKScene {
         if firstNode.name == secondNode.name {
             // Gambar cocok
             print("Nodes match")
+            matchedPairs += 1
             firstNode.run(SKAction.sequence([
                 SKAction.wait(forDuration: 1.0),
                 SKAction.removeFromParent()
@@ -76,6 +80,10 @@ class PuzzleSceen: SKScene {
                 SKAction.wait(forDuration: 1.0),
                 SKAction.removeFromParent()
             ]))
+            
+            if matchedPairs == totalPairs {
+                puzzleCompleted()
+            }
         } else {
             // Gambar tidak cocok
             print("Nodes do not match")
@@ -103,5 +111,30 @@ class PuzzleSceen: SKScene {
         }
         
         selectedNodes.removeAll()
+    }
+    
+    func puzzleCompleted() {
+        print("Puzzle completed")
+        displayCompletionGIF()
+    }
+    
+    func displayCompletionGIF() {
+        guard Bundle.main.url(forResource: "Congrats", withExtension: "gif") != nil else {
+            print("GIF file not found")
+            return
+        }
+        
+        let gifTexture = SKTexture(imageNamed: "Congrats.gif")
+        let gifNode = SKSpriteNode(texture: gifTexture)
+        let xOffset: CGFloat = 50  // Atur offset horizontal dari sebelah kiri
+            let yOffset: CGFloat = 100 // Atur offset vertikal dari tengah layar
+            gifNode.position = CGPoint(x: xOffset, y: self.size.height / 2 - yOffset)
+        gifNode.size = self.size
+        
+        self.addChild(gifNode)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            gifNode.removeFromParent()
+        }
     }
 }
