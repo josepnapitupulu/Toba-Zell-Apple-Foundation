@@ -9,11 +9,14 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
 
+class GameViewController: UIViewController {
+    
+    @IBOutlet var backHome: UITapGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
@@ -42,4 +45,5 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
 }

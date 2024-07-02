@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5AAB7E62C330B870028BB80 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AAB7E52C330B870028BB80 /* MainMenuViewController.swift */; };
+		E5AAB8022C33B83A0028BB80 /* bgmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5AAB8012C33B83A0028BB80 /* bgmusic.mp3 */; };
 		F33102C92C32A9BB004A1362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33102C82C32A9BB004A1362 /* AppDelegate.swift */; };
 		F33102CB2C32A9BB004A1362 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F33102CA2C32A9BB004A1362 /* GameScene.sks */; };
 		F33102CD2C32A9BB004A1362 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F33102CC2C32A9BB004A1362 /* Actions.sks */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E5AAB7E52C330B870028BB80 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		E5AAB8012C33B83A0028BB80 /* bgmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgmusic.mp3; sourceTree = "<group>"; };
 		F33102C52C32A9BB004A1362 /* ZellTob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZellTob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33102C82C32A9BB004A1362 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F33102CA2C32A9BB004A1362 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -64,8 +68,10 @@
 				F33102CC2C32A9BB004A1362 /* Actions.sks */,
 				F33102CE2C32A9BB004A1362 /* GameScene.swift */,
 				F33102D02C32A9BB004A1362 /* GameViewController.swift */,
+				E5AAB7E52C330B870028BB80 /* MainMenuViewController.swift */,
 				F33102D22C32A9BB004A1362 /* Main.storyboard */,
 				F33102D52C32A9BC004A1362 /* Assets.xcassets */,
+				E5AAB8012C33B83A0028BB80 /* bgmusic.mp3 */,
 				F33102D72C32A9BC004A1362 /* LaunchScreen.storyboard */,
 			);
 			path = ZellTob;
@@ -131,6 +137,7 @@
 			files = (
 				F33102CB2C32A9BB004A1362 /* GameScene.sks in Resources */,
 				F33102D42C32A9BB004A1362 /* Base in Resources */,
+				E5AAB8022C33B83A0028BB80 /* bgmusic.mp3 in Resources */,
 				F33102D62C32A9BC004A1362 /* Assets.xcassets in Resources */,
 				F33102CD2C32A9BB004A1362 /* Actions.sks in Resources */,
 				F33102D92C32A9BC004A1362 /* Base in Resources */,
@@ -144,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AAB7E62C330B870028BB80 /* MainMenuViewController.swift in Sources */,
 				F33102CF2C32A9BB004A1362 /* GameScene.swift in Sources */,
 				F33102D12C32A9BB004A1362 /* GameViewController.swift in Sources */,
 				F33102C92C32A9BB004A1362 /* AppDelegate.swift in Sources */,
