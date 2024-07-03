@@ -11,7 +11,10 @@ class PuzzleSceen: SKScene {
     override func didMove(to view: SKView) {
         // Tambahan konfigurasi jika diperlukan
         print("Scene loaded")
+        
     }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
@@ -47,7 +50,7 @@ class PuzzleSceen: SKScene {
             coverNode.removeFromParent() // Hapus gambar penutup
             
             selectedNodes.append(imageNode)
-            print("Selected nodes: \(selectedNodes.map { $0.name ?? "Unnamed" })")
+            print( "Selected nodes: \(selectedNodes.map { $0.name ?? "Unnamed" })")
             
             if selectedNodes.count == 2 {
                 checkForMatch()
@@ -114,27 +117,66 @@ class PuzzleSceen: SKScene {
     }
     
     func puzzleCompleted() {
-        print("Puzzle completed")
-        displayCompletionGIF()
+         print("Puzzle completed")
+         if let cardNode = self.childNode(withName: "card_1") as? SKSpriteNode {
+             displayCompletionImage(cardNode)
+         } else {
+             displayCompletionGIF()
+         }
+     }
+     
+    func displayCompletionImage(_ cardNode: SKSpriteNode) {
+        cardNode.zPosition = 10
+        
+        // Mengatur skala x dan y secara terpisah untuk memperbesar tinggi lebih besar dari lebar
+        let scaleXAction = SKAction.scaleX(to: cardNode.xScale * 1.4, duration: 0.5)
+        let scaleYAction = SKAction.scaleY(to: cardNode.yScale * 1.6, duration: 0.5) // Perbesar lebih banyak pada sumbu y
+        
+        // Tambahkan rotasi dan perubahan warna untuk efek yang lebih ekstrem
+        let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
+//        let colorizeAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5)
+        
+        // Gabungkan semua aksi menjadi satu
+        let groupAction = SKAction.group([scaleXAction, scaleYAction, rotateAction])
+        
+        cardNode.run(groupAction) {
+            self.displayCompletionGIF()
+        }
     }
+
+    
+    
     
     func displayCompletionGIF() {
-        guard Bundle.main.url(forResource: "Congrats", withExtension: "gif") != nil else {
+        guard let textures = SKTexture.texturesFromGif(named: "Congrats") else {
             print("GIF file not found")
             return
         }
         
-        let gifTexture = SKTexture(imageNamed: "Congrats.gif")
-        let gifNode = SKSpriteNode(texture: gifTexture)
-        let xOffset: CGFloat = 50  // Atur offset horizontal dari sebelah kiri
-            let yOffset: CGFloat = 100 // Atur offset vertikal dari tengah layar
-            gifNode.position = CGPoint(x: xOffset, y: self.size.height / 2 - yOffset)
-        gifNode.size = self.size
+        let gifNode = SKSpriteNode(texture: textures.first)
+        gifNode.position = CGPoint(x: self.size.width / 42, y: self.size.height / 27)
+        gifNode.size = CGSize(width: 600, height: 600) // Atur ukuran sesuai kebutuhan
+        gifNode.zPosition = 11 // Pastikan node berada di lapisan atas, di atas cardNode
         
+        // Tambahkan animasi ekstrem
+        gifNode.setScale(0.2)
+        gifNode.alpha = 0.0
+        
+        let scaleAction = SKAction.scale(to: 1.0, duration: 2.0)
+        let fadeInAction = SKAction.fadeIn(withDuration: 1.0)
+        let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.0)
+        
+        let groupAction = SKAction.group([scaleAction, fadeInAction, rotateAction])
+        gifNode.run(groupAction)
+        
+        let animationAction = SKAction.animate(with: textures, timePerFrame: 0.1)
+        let repeatAction = SKAction.repeatForever(animationAction)
+        
+        gifNode.run(repeatAction)
         self.addChild(gifNode)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            gifNode.removeFromParent()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+//            gifNode.removeFromParent()
+//        }
     }
 }
