@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1B281E62C369531003114C3 /* PuzzleScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B281E52C369531003114C3 /* PuzzleScene4.swift */; };
+		F1B281E82C369579003114C3 /* PuzzleScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B281E72C369579003114C3 /* PuzzleScene5.swift */; };
+		F1BEDD7C2C3689200062B25E /* PuzzleScene4.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1BEDD7B2C3689200062B25E /* PuzzleScene4.sks */; };
+		F1BEDD7E2C368EB30062B25E /* PuzzleScene5.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1BEDD7D2C368EB30062B25E /* PuzzleScene5.sks */; };
 		F1E79D502C343B4700A55529 /* UIImae.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E79D4F2C343B4700A55529 /* UIImae.swift */; };
 		F1E79D522C343C9700A55529 /* SKTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E79D512C343C9700A55529 /* SKTexture.swift */; };
 		F32234452C3409530054D4CA /* Congrats.gif in Resources */ = {isa = PBXBuildFile; fileRef = F32234442C3409530054D4CA /* Congrats.gif */; };
@@ -38,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1B281E52C369531003114C3 /* PuzzleScene4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleScene4.swift; sourceTree = "<group>"; };
+		F1B281E72C369579003114C3 /* PuzzleScene5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleScene5.swift; sourceTree = "<group>"; };
+		F1BEDD7B2C3689200062B25E /* PuzzleScene4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PuzzleScene4.sks; sourceTree = "<group>"; };
+		F1BEDD7D2C368EB30062B25E /* PuzzleScene5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PuzzleScene5.sks; sourceTree = "<group>"; };
 		F1E79D4F2C343B4700A55529 /* UIImae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImae.swift; sourceTree = "<group>"; };
 		F1E79D512C343C9700A55529 /* SKTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTexture.swift; sourceTree = "<group>"; };
 		F32234442C3409530054D4CA /* Congrats.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Congrats.gif; sourceTree = "<group>"; };
@@ -114,6 +122,9 @@
 				F322345C2C367E3E0054D4CA /* PuzzleScene2.swift */,
 				F322345A2C3561DC0054D4CA /* PuzzleScene3.sks */,
 				F322345E2C367E550054D4CA /* PuzzleScene3.swift */,
+				F1BEDD7B2C3689200062B25E /* PuzzleScene4.sks */,
+				F1B281E52C369531003114C3 /* PuzzleScene4.swift */,
+				F1BEDD7D2C368EB30062B25E /* PuzzleScene5.sks */,
 				F32234562C3554550054D4CA /* DataManager.swift */,
 				F33102D22C32A9BB004A1362 /* Main.storyboard */,
 				F33102D52C32A9BC004A1362 /* Assets.xcassets */,
@@ -127,6 +138,7 @@
 				F322344F2C354B6A0054D4CA /* vid3.mp4 */,
 				F322344E2C354B6A0054D4CA /* vid4.mp4 */,
 				F322344C2C354B6A0054D4CA /* vid5.mp4 */,
+				F1B281E72C369579003114C3 /* PuzzleScene5.swift */,
 			);
 			path = ZellTob;
 			sourceTree = "<group>";
@@ -189,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BEDD7E2C368EB30062B25E /* PuzzleScene5.sks in Resources */,
 				F33102E22C32C05A004A1362 /* PuzzleSceen.sks in Resources */,
 				F32234542C354B6A0054D4CA /* vid3.mp4 in Resources */,
 				F32234532C354B6A0054D4CA /* vid4.mp4 in Resources */,
@@ -200,6 +213,7 @@
 				F32234592C3558F90054D4CA /* PuzzleScene2.sks in Resources */,
 				F33102D42C32A9BB004A1362 /* Base in Resources */,
 				F33102D62C32A9BC004A1362 /* Assets.xcassets in Resources */,
+				F1BEDD7C2C3689200062B25E /* PuzzleScene4.sks in Resources */,
 				F33102CD2C32A9BB004A1362 /* Actions.sks in Resources */,
 				F32234552C354B6A0054D4CA /* vid2.mp4 in Resources */,
 				F32234512C354B6A0054D4CA /* vid5.mp4 in Resources */,
@@ -214,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1B281E82C369579003114C3 /* PuzzleScene5.swift in Sources */,
 				F3353F8E2C3313FB00426BC1 /* PuzzleSceen.swift in Sources */,
 				F1E79D502C343B4700A55529 /* UIImae.swift in Sources */,
 				F33102CF2C32A9BB004A1362 /* GameScene.swift in Sources */,
@@ -225,6 +240,7 @@
 				F33102E02C32BDBF004A1362 /* PuzzelViewController.swift in Sources */,
 				F322345F2C367E550054D4CA /* PuzzleScene3.swift in Sources */,
 				F32234572C3554550054D4CA /* DataManager.swift in Sources */,
+				F1B281E62C369531003114C3 /* PuzzleScene4.swift in Sources */,
 				F322344B2C35480A0054D4CA /* VideoViewController.swift in Sources */,
 				F33102C92C32A9BB004A1362 /* AppDelegate.swift in Sources */,
 			);
