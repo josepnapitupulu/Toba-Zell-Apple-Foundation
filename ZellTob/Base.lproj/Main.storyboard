@@ -200,6 +200,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="card1Button" destination="g9Z-HD-a4h" id="fMR-cw-AQk"/>
+                        <outlet property="card2Button" destination="Kb3-Xw-JP6" id="Tk5-B4-fb0"/>
+                        <outlet property="card3Button" destination="0Nc-9u-z7D" id="6dD-yM-f3k"/>
+                        <outlet property="card4Button" destination="J3q-0Z-J3d" id="ikX-nI-S8u"/>
+                        <outlet property="card5Button" destination="DDR-9l-kks" id="ByE-60-dDm"/>
                         <outlet property="sound" destination="4z8-Hx-89U" id="hLm-ya-8xi"/>
                         <segue destination="Aax-co-RL8" kind="show" identifier="gotoVideoDetail" id="Dbq-k5-L9a"/>
                     </connections>

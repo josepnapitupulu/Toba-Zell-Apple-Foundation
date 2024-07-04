@@ -12,10 +12,9 @@ import ImageIO
 class PuzzleScene2: SKScene {
     var selectedNodes = [SKSpriteNode]()
     var matchedPairs = 0
-    let totalPairs = 10 // Sesuaikan dengan jumlah total pasangan gambar yang ada dalam puzzle
+    let totalPairs = 10 
     
     override func didMove(to view: SKView) {
-        // Tambahan konfigurasi jika diperlukan
         print("Scene loaded")
         
     }
@@ -123,16 +122,31 @@ class PuzzleScene2: SKScene {
     }
     
     func puzzleCompleted() {
-         print("Puzzle completed")
-         if let cardNode = self.childNode(withName: "card_1") as? SKSpriteNode {
-             displayCompletionImage(cardNode)
-             
-             // set card 1 open
-             DataManager.openCard1()
-         } else {
-             displayCompletionGIF()
-         }
-     }
+        print("Puzzle completed")
+        if let cardNode = self.childNode(withName: "card_2") as? SKSpriteNode {
+            displayCompletionImage(cardNode)
+            
+            // set card 1 open
+            DataManager.openCard2()
+            
+            // Tambahkan waktu tunggu sebelum eksekusi logika berikutnya
+            let wait = SKAction.wait(forDuration: 5.0) // Durasi jeda yang diinginkan
+            let runBlock = SKAction.run {
+                if let puzzleScene = SKScene(fileNamed: "PuzzleScene3") {
+                    puzzleScene.scaleMode = .aspectFill
+                    puzzleScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+                    let transition = SKTransition.reveal(with: .down, duration: 1)
+                    self.view?.presentScene(puzzleScene, transition: transition)
+                }
+            }
+            
+            // Gabungkan aksi
+            let sequence = SKAction.sequence([wait, runBlock])
+            self.run(sequence)
+        } else {
+            displayCompletionGIF()
+        }
+    }
      
     func displayCompletionImage(_ cardNode: SKSpriteNode) {
         cardNode.zPosition = 10

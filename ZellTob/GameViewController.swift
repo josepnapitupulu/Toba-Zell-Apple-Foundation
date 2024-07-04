@@ -54,5 +54,9 @@ class GameViewController: UIViewController {
         
         // ambil value dari key card_1
         UserDefaults.standard.bool(forKey: "card_1")
+        UserDefaults.standard.bool(forKey: "card_2")
+        UserDefaults.standard.bool(forKey: "card_3")
+        UserDefaults.standard.bool(forKey: "card_4")
+        UserDefaults.standard.bool(forKey: "card_5")
     }
 }

@@ -16,6 +16,10 @@ class CardViewController: UIViewController {
     var isMute = false
     
     @IBOutlet weak var card1Button: UIButton!
+    @IBOutlet weak var card2Button: UIButton!
+    @IBOutlet weak var card3Button: UIButton!
+    @IBOutlet weak var card4Button: UIButton!
+    @IBOutlet weak var card5Button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,30 @@ class CardViewController: UIViewController {
             card1Button.isEnabled = true
         } else {
             card1Button.isEnabled = false
+        }
+        
+        if DataManager.isCard2Open == true {
+            card2Button.isEnabled = true
+        } else {
+            card2Button.isEnabled = false
+        }
+        
+        if DataManager.isCard3Open == true {
+            card3Button.isEnabled = true
+        } else {
+            card3Button.isEnabled = false
+        }
+        
+        if DataManager.isCard4Open == true {
+            card4Button.isEnabled = true
+        } else {
+            card4Button.isEnabled = false
+        }
+        
+        if DataManager.isCard5Open == true {
+            card5Button.isEnabled = true
+        } else {
+            card5Button.isEnabled = false
         }
     }
     
