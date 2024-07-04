@@ -120,6 +120,15 @@ class PuzzleSceen: SKScene {
          print("Puzzle completed")
          if let cardNode = self.childNode(withName: "card_1") as? SKSpriteNode {
              displayCompletionImage(cardNode)
+             
+             // set card 1 open
+             DataManager.openCard1()
+             if let puzzleScene = SKScene(fileNamed: "PuzzleScene2"){
+                 puzzleScene.scaleMode = .aspectFill
+                 puzzleScene.anchorPoint = CGPoint(x: 0.5, y:0.5)
+                 let transition = SKTransition.reveal(with: .down, duration: 1)
+                 view?.presentScene(puzzleScene, transition: transition)
+             }
          } else {
              displayCompletionGIF()
          }

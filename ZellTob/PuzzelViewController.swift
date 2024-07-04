@@ -11,23 +11,11 @@ import AVFoundation
 
 class PuzzelViewController: UIViewController {
 
-    @IBOutlet weak var sound: UIButton!
     var isMute = false
     
+    @IBOutlet weak var sound: UIButton!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    @IBAction func onOffSound(_ sender: Any) {
-        if !isMute {
-            sound.setImage(UIImage(systemName: "speaker.slash.circle.fill"), for: .normal)
-            isMute = true
-            appDelegate.music?.stop()
-        }else{
-            sound.setImage(UIImage(systemName: "speaker.circle.fill"), for: .normal)
-            isMute = false
-            appDelegate.music?.play()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +33,17 @@ class PuzzelViewController: UIViewController {
         
     }
     
+    @IBAction func onOffSound(_ sender: Any) {
+        if !isMute {
+            sound.setImage(UIImage(systemName: "speaker.slash.circle.fill"), for: .normal)
+            isMute = true
+            appDelegate.music?.stop()
+        }else{
+            sound.setImage(UIImage(systemName: "speaker.circle.fill"), for: .normal)
+            isMute = false
+            appDelegate.music?.play()
+        }
+    }
     
     override var prefersStatusBarHidden: Bool{
         return true

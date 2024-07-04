@@ -10,6 +10,19 @@
 		F1E79D502C343B4700A55529 /* UIImae.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E79D4F2C343B4700A55529 /* UIImae.swift */; };
 		F1E79D522C343C9700A55529 /* SKTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E79D512C343C9700A55529 /* SKTexture.swift */; };
 		F32234452C3409530054D4CA /* Congrats.gif in Resources */ = {isa = PBXBuildFile; fileRef = F32234442C3409530054D4CA /* Congrats.gif */; };
+		F32234472C353D6F0054D4CA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32234462C353D6F0054D4CA /* HomeViewController.swift */; };
+		F32234492C3547A20054D4CA /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32234482C3547A20054D4CA /* CardViewController.swift */; };
+		F322344B2C35480A0054D4CA /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322344A2C35480A0054D4CA /* VideoViewController.swift */; };
+		F32234512C354B6A0054D4CA /* vid5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F322344C2C354B6A0054D4CA /* vid5.mp4 */; };
+		F32234522C354B6A0054D4CA /* vid1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F322344D2C354B6A0054D4CA /* vid1.mp4 */; };
+		F32234532C354B6A0054D4CA /* vid4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F322344E2C354B6A0054D4CA /* vid4.mp4 */; };
+		F32234542C354B6A0054D4CA /* vid3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F322344F2C354B6A0054D4CA /* vid3.mp4 */; };
+		F32234552C354B6A0054D4CA /* vid2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F32234502C354B6A0054D4CA /* vid2.mp4 */; };
+		F32234572C3554550054D4CA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32234562C3554550054D4CA /* DataManager.swift */; };
+		F32234592C3558F90054D4CA /* PuzzleScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = F32234582C3558F90054D4CA /* PuzzleScene2.sks */; };
+		F322345B2C3561DC0054D4CA /* PuzzleScene3.sks in Resources */ = {isa = PBXBuildFile; fileRef = F322345A2C3561DC0054D4CA /* PuzzleScene3.sks */; };
+		F322345D2C367E3E0054D4CA /* PuzzleScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322345C2C367E3E0054D4CA /* PuzzleScene2.swift */; };
+		F322345F2C367E550054D4CA /* PuzzleScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322345E2C367E550054D4CA /* PuzzleScene3.swift */; };
 		F33102C92C32A9BB004A1362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33102C82C32A9BB004A1362 /* AppDelegate.swift */; };
 		F33102CB2C32A9BB004A1362 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F33102CA2C32A9BB004A1362 /* GameScene.sks */; };
 		F33102CD2C32A9BB004A1362 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F33102CC2C32A9BB004A1362 /* Actions.sks */; };
@@ -28,6 +41,19 @@
 		F1E79D4F2C343B4700A55529 /* UIImae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImae.swift; sourceTree = "<group>"; };
 		F1E79D512C343C9700A55529 /* SKTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTexture.swift; sourceTree = "<group>"; };
 		F32234442C3409530054D4CA /* Congrats.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Congrats.gif; sourceTree = "<group>"; };
+		F32234462C353D6F0054D4CA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F32234482C3547A20054D4CA /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		F322344A2C35480A0054D4CA /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		F322344C2C354B6A0054D4CA /* vid5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vid5.mp4; sourceTree = "<group>"; };
+		F322344D2C354B6A0054D4CA /* vid1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vid1.mp4; sourceTree = "<group>"; };
+		F322344E2C354B6A0054D4CA /* vid4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vid4.mp4; sourceTree = "<group>"; };
+		F322344F2C354B6A0054D4CA /* vid3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vid3.mp4; sourceTree = "<group>"; };
+		F32234502C354B6A0054D4CA /* vid2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vid2.mp4; sourceTree = "<group>"; };
+		F32234562C3554550054D4CA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		F32234582C3558F90054D4CA /* PuzzleScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PuzzleScene2.sks; sourceTree = "<group>"; };
+		F322345A2C3561DC0054D4CA /* PuzzleScene3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PuzzleScene3.sks; sourceTree = "<group>"; };
+		F322345C2C367E3E0054D4CA /* PuzzleScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleScene2.swift; sourceTree = "<group>"; };
+		F322345E2C367E550054D4CA /* PuzzleScene3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleScene3.swift; sourceTree = "<group>"; };
 		F33102C52C32A9BB004A1362 /* ZellTob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZellTob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33102C82C32A9BB004A1362 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F33102CA2C32A9BB004A1362 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -78,9 +104,17 @@
 				F33102CC2C32A9BB004A1362 /* Actions.sks */,
 				F33102CE2C32A9BB004A1362 /* GameScene.swift */,
 				F33102D02C32A9BB004A1362 /* GameViewController.swift */,
+				F32234462C353D6F0054D4CA /* HomeViewController.swift */,
+				F32234482C3547A20054D4CA /* CardViewController.swift */,
+				F322344A2C35480A0054D4CA /* VideoViewController.swift */,
 				F33102DF2C32BDBF004A1362 /* PuzzelViewController.swift */,
 				F33102E12C32C05A004A1362 /* PuzzleSceen.sks */,
 				F3353F8D2C3313FB00426BC1 /* PuzzleSceen.swift */,
+				F32234582C3558F90054D4CA /* PuzzleScene2.sks */,
+				F322345C2C367E3E0054D4CA /* PuzzleScene2.swift */,
+				F322345A2C3561DC0054D4CA /* PuzzleScene3.sks */,
+				F322345E2C367E550054D4CA /* PuzzleScene3.swift */,
+				F32234562C3554550054D4CA /* DataManager.swift */,
 				F33102D22C32A9BB004A1362 /* Main.storyboard */,
 				F33102D52C32A9BC004A1362 /* Assets.xcassets */,
 				F33102D72C32A9BC004A1362 /* LaunchScreen.storyboard */,
@@ -88,6 +122,11 @@
 				F32234442C3409530054D4CA /* Congrats.gif */,
 				F1E79D4F2C343B4700A55529 /* UIImae.swift */,
 				F1E79D512C343C9700A55529 /* SKTexture.swift */,
+				F322344D2C354B6A0054D4CA /* vid1.mp4 */,
+				F32234502C354B6A0054D4CA /* vid2.mp4 */,
+				F322344F2C354B6A0054D4CA /* vid3.mp4 */,
+				F322344E2C354B6A0054D4CA /* vid4.mp4 */,
+				F322344C2C354B6A0054D4CA /* vid5.mp4 */,
 			);
 			path = ZellTob;
 			sourceTree = "<group>";
@@ -151,12 +190,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F33102E22C32C05A004A1362 /* PuzzleSceen.sks in Resources */,
+				F32234542C354B6A0054D4CA /* vid3.mp4 in Resources */,
+				F32234532C354B6A0054D4CA /* vid4.mp4 in Resources */,
+				F322345B2C3561DC0054D4CA /* PuzzleScene3.sks in Resources */,
 				F32234452C3409530054D4CA /* Congrats.gif in Resources */,
 				F33102CB2C32A9BB004A1362 /* GameScene.sks in Resources */,
+				F32234522C354B6A0054D4CA /* vid1.mp4 in Resources */,
 				F3353F8C2C32FFA300426BC1 /* music.mp3 in Resources */,
+				F32234592C3558F90054D4CA /* PuzzleScene2.sks in Resources */,
 				F33102D42C32A9BB004A1362 /* Base in Resources */,
 				F33102D62C32A9BC004A1362 /* Assets.xcassets in Resources */,
 				F33102CD2C32A9BB004A1362 /* Actions.sks in Resources */,
+				F32234552C354B6A0054D4CA /* vid2.mp4 in Resources */,
+				F32234512C354B6A0054D4CA /* vid5.mp4 in Resources */,
 				F33102D92C32A9BC004A1362 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,9 +217,15 @@
 				F3353F8E2C3313FB00426BC1 /* PuzzleSceen.swift in Sources */,
 				F1E79D502C343B4700A55529 /* UIImae.swift in Sources */,
 				F33102CF2C32A9BB004A1362 /* GameScene.swift in Sources */,
+				F322345D2C367E3E0054D4CA /* PuzzleScene2.swift in Sources */,
+				F32234472C353D6F0054D4CA /* HomeViewController.swift in Sources */,
 				F1E79D522C343C9700A55529 /* SKTexture.swift in Sources */,
+				F32234492C3547A20054D4CA /* CardViewController.swift in Sources */,
 				F33102D12C32A9BB004A1362 /* GameViewController.swift in Sources */,
 				F33102E02C32BDBF004A1362 /* PuzzelViewController.swift in Sources */,
+				F322345F2C367E550054D4CA /* PuzzleScene3.swift in Sources */,
+				F32234572C3554550054D4CA /* DataManager.swift in Sources */,
+				F322344B2C35480A0054D4CA /* VideoViewController.swift in Sources */,
 				F33102C92C32A9BB004A1362 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
