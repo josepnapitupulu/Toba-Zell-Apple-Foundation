@@ -20,7 +20,7 @@ class PuzzelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.setHidesBackButton(true, animated: true)
+//        self.navigationItem.setHidesBackButton(true, animated: true)
         
         if let view = self.view as! SKView?{
             if let scene = SKScene(fileNamed: "PuzzleSceen"){

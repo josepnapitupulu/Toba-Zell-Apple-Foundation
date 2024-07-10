@@ -16,7 +16,10 @@ class PuzzleScene3: SKScene {
     
     override func didMove(to view: SKView) {
         print("Scene loaded")
-        
+//        shuffleImages()
+        if UserDefaults.standard.bool(forKey: "isCard3Open") {
+            transitionToPuzzleScene2()
+        }
     }
     
     
@@ -34,6 +37,8 @@ class PuzzleScene3: SKScene {
         for node in touchedNodes {
             if node.name == "cover" {
                 print("Cover node touched: \(node)")
+                let playSound = SKAction.playSoundFileNamed("klick.mp3", waitForCompletion: false)
+                            self.run(playSound)
                 flipTile(node as! SKSpriteNode)
                 break // keluar dari loop setelah menemukan dan menangani node "cover"
             }
@@ -51,11 +56,25 @@ class PuzzleScene3: SKScene {
         // Cari node gambar asli yang tersembunyi di bawah cover
         if let imageNode = self.nodes(at: position).first(where: { $0.name?.starts(with: "image") ?? false }) as? SKSpriteNode {
             print("Image node found: \(imageNode.name ?? "Unnamed")")
-            imageNode.isHidden = false
-            coverNode.removeFromParent() // Hapus gambar penutup
+            
+            // Buat animasi flip dengan scale dan fade
+            let flipInAction = SKAction.scaleX(to: 0.0, duration: 0.25)
+            let flipOutAction = SKAction.scaleX(to: 1.0, duration: 0.25)
+            let fadeOutAction = SKAction.fadeOut(withDuration: 0.25)
+            let fadeInAction = SKAction.fadeIn(withDuration: 0.25)
+            
+            // Buat tindakan untuk mengganti node gambar dengan cover
+            let revealAction = SKAction.run {
+                coverNode.removeFromParent()
+                imageNode.isHidden = false
+            }
+            
+            // Jalankan urutan animasi flip, fade, dan penggantian gambar
+            let flipSequence = SKAction.sequence([flipInAction, fadeOutAction, revealAction, fadeInAction, flipOutAction])
+            coverNode.run(flipSequence)
             
             selectedNodes.append(imageNode)
-            print( "Selected nodes: \(selectedNodes.map { $0.name ?? "Unnamed" })")
+            print("Selected nodes: \(selectedNodes.map { $0.name ?? "Unnamed" })")
             
             if selectedNodes.count == 2 {
                 checkForMatch()
@@ -80,14 +99,24 @@ class PuzzleScene3: SKScene {
             // Gambar cocok
             print("Nodes match")
             matchedPairs += 1
-            firstNode.run(SKAction.sequence([
-                SKAction.wait(forDuration: 1.0),
-                SKAction.removeFromParent()
-            ]))
-            secondNode.run(SKAction.sequence([
-                SKAction.wait(forDuration: 1.0),
-                SKAction.removeFromParent()
-            ]))
+            
+            // Move to center
+            let centerPoint = CGPoint(x: size.width / 42, y: size.height / 42)
+            let moveToCenter = SKAction.move(to: centerPoint, duration: 0.3)
+            
+            let sequence = SKAction.sequence([moveToCenter, SKAction.run {
+                self.createShatterEffect(for: firstNode)
+                self.createShatterEffect(for: secondNode)
+            }])
+            
+            firstNode.run(sequence)
+            secondNode.run(sequence)
+            
+            let playSound = SKAction.sequence([
+                    SKAction.wait(forDuration: 1.0),
+                    SKAction.playSoundFileNamed("match.mp3", waitForCompletion: false)
+                ])
+                self.run(playSound)
             
             if matchedPairs == totalPairs {
                 puzzleCompleted()
@@ -95,6 +124,19 @@ class PuzzleScene3: SKScene {
         } else {
             // Gambar tidak cocok
             print("Nodes do not match")
+            let shakeAction = SKAction.sequence([
+                SKAction.moveBy(x: -10, y: 0, duration: 0.1),
+                SKAction.moveBy(x: 20, y: 0, duration: 0.1),
+                SKAction.moveBy(x: -10, y: 0, duration: 0.1)
+            ])
+            
+            firstNode.run(shakeAction)
+            secondNode.run(shakeAction)
+            
+            // Haptics for no match
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            
             firstNode.run(SKAction.sequence([
                 SKAction.wait(forDuration: 1.0),
                 SKAction.run {
@@ -201,5 +243,77 @@ class PuzzleScene3: SKScene {
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
 //            gifNode.removeFromParent()
 //        }
+    }
+    
+    func shuffleImages() {
+       var imageNodes = [SKSpriteNode]()
+       for i in 1...10 {
+           if let imageNode = self.childNode(withName: "image_\(i)") as? SKSpriteNode {
+               imageNodes.append(imageNode)
+           }
+       }
+       
+       guard imageNodes.count == 10 else {
+           print("Tidak semua gambar ditemukan.")
+           return
+       }
+       
+       let positions = imageNodes.map { $0.position }
+       let shuffledPositions = positions.shuffled()
+       
+       for (index, node) in imageNodes.enumerated() {
+           node.position = shuffledPositions[index]
+       }
+       
+       print("Images shuffled.")
+   }
+    
+    func createShatterEffect(for node: SKSpriteNode) {
+        let texture = node.texture!
+        let size = node.size
+        
+        let rows = 10
+        let cols = 10
+        let pieceWidth = size.width / CGFloat(cols)
+        let pieceHeight = size.height / CGFloat(rows)
+        
+        for row in 0..<rows {
+            for col in 0..<cols {
+                let x = CGFloat(col) * pieceWidth
+                let y = CGFloat(row) * pieceHeight
+                
+                let rect = CGRect(x: x / size.width, y: y / size.height, width: pieceWidth / size.width, height: pieceHeight / size.height)
+                let pieceTexture = SKTexture(rect: rect, in: texture)
+                
+                let pieceNode = SKSpriteNode(texture: pieceTexture)
+                pieceNode.size = CGSize(width: pieceWidth, height: pieceHeight)
+                pieceNode.position = CGPoint(x: node.position.x + x - size.width / 2 + pieceWidth / 2,
+                                             y: node.position.y + y - size.height / 2 + pieceHeight / 2)
+                pieceNode.zPosition = node.zPosition
+                
+                addChild(pieceNode)
+                
+                let moveX = CGFloat.random(in: -50...50)
+                let moveY = CGFloat.random(in: -50...50)
+                
+                let moveAction = SKAction.moveBy(x: moveX, y: moveY, duration: 1.0)
+                let fadeAction = SKAction.fadeOut(withDuration: 1.0)
+                let removeAction = SKAction.removeFromParent()
+                
+                let sequence = SKAction.sequence([moveAction, fadeAction, removeAction])
+                pieceNode.run(sequence)
+            }
+        }
+        
+        node.removeFromParent()
+    }
+    
+    func transitionToPuzzleScene2() {
+        if let puzzleScene = SKScene(fileNamed: "PuzzleScene4") {
+            puzzleScene.scaleMode = .aspectFill
+            puzzleScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            let transition = SKTransition.reveal(with: .down, duration: 1)
+            self.view?.presentScene(puzzleScene, transition: transition)
+        }
     }
 }

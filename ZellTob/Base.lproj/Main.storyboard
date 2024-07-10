@@ -221,10 +221,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-FZ-5Lf">
-                                <rect key="frame" x="31" y="724" width="71" height="35"/>
+                                <rect key="frame" x="33" y="774" width="71" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Pause"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Pause">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" red="0.29246598480000002" green="0.63091087339999996" blue="0.82356029750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" red="0.29246598480000002" green="0.63091087339999996" blue="0.82356029750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="playPause:" destination="Aax-co-RL8" eventType="touchUpInside" id="ebz-XP-RM3"/>
                                 </connections>
@@ -233,9 +238,24 @@
                         <viewLayoutGuide key="safeArea" id="ff1-nZ-hCb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ald-3w-jkP"/>
+                    <navigationItem key="navigationItem" id="ald-3w-jkP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="MEn-yq-EdS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Wgv-cb-h2l">
+                                <rect key="frame" x="292" y="381" width="50" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="speaker.circle.fill" catalog="system" title="">
+                                    <color key="baseForegroundColor" red="0.29246598480000002" green="0.63091087339999996" blue="0.82356029750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onOffSound:" destination="Aax-co-RL8" eventType="touchUpInside" id="6ef-d2-1Sg"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pausePlayButton" destination="pW6-FZ-5Lf" id="y79-aD-lBD"/>
+                        <outlet property="sound" destination="Wgv-cb-h2l" id="L64-Su-P8M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCG-dg-FtJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -268,6 +288,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ekJ-RZ-MVj">
+                        <barButtonItem key="backBarButtonItem" title="home" image="house.circle.fill" catalog="system" id="1kk-9W-w8t"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="rN3-Vv-YVO">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vqX-YE-5aP">
                                 <rect key="frame" x="327" y="4.6666666666666679" width="50" height="35"/>
@@ -320,6 +341,7 @@
         <image name="card4" width="673" height="666"/>
         <image name="card5" width="664" height="668"/>
         <image name="homeScreen" width="1080" height="1920"/>
+        <image name="house.circle.fill" catalog="system" width="128" height="123"/>
         <image name="speaker.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

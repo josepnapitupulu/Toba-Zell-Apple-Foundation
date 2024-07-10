@@ -19,12 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         let audioPlayer = try? AVAudioPlayer(contentsOf:  musicLocation)
         audioPlayer?.numberOfLoops = -1
+        audioPlayer?.volume = 0.4
         return audioPlayer
     }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         music?.play()
+        
         return true
     }
 

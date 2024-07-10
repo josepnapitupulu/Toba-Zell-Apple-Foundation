@@ -14,10 +14,15 @@ class VideoViewController: UIViewController {
     var playerVideo: AVPlayer?
     var isPause = false
     var videoNumber: Int = 0
+    @IBOutlet weak var sound: UIButton!
+    var isMute = false
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        self.navigationItem.setHidesBackButton(true, animated: true)
         // Do any additional setup after loading the view.
     }
     
@@ -61,4 +66,15 @@ class VideoViewController: UIViewController {
         playerVideo?.play()
     }
     
+    @IBAction func onOffSound(_ sender: Any) {
+        if !isMute {
+            sound.setImage(UIImage(systemName: "speaker.slash.circle.fill"), for: .normal)
+            isMute = true
+            appDelegate.music?.stop()
+        }else{
+            sound.setImage(UIImage(systemName: "speaker.circle.fill"), for: .normal)
+            isMute = false
+            appDelegate.music?.play()
+        }
+    }
 }
