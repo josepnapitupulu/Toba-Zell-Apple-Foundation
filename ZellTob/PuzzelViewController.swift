@@ -9,6 +9,32 @@ import UIKit
 import SpriteKit
 import AVFoundation
 
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
+
+extension UIColor {
+    convenience init(hex: String, alpha: CGFloat = 1.0) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+
+        var rgb: UInt64 = 0
+        Scanner(string: hexSanitized).scanHexInt64(&rgb)
+
+        let red = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+        let green = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+        let blue = CGFloat(rgb & 0x0000FF) / 255.0
+
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+}
+
+
 class PuzzelViewController: UIViewController {
 
     var isMute = false
@@ -19,6 +45,8 @@ class PuzzelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(popBackToRoot), name: Notification.Name("GameDone"), object: nil)
 
 //        self.navigationItem.setHidesBackButton(true, animated: true)
         
@@ -35,11 +63,17 @@ class PuzzelViewController: UIViewController {
     
     @IBAction func onOffSound(_ sender: Any) {
         if !isMute {
-            sound.setImage(UIImage(systemName: "speaker.slash.circle.fill"), for: .normal)
+            if let image = UIImage(systemName: "speaker.slash.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = true
             appDelegate.music?.stop()
-        }else{
-            sound.setImage(UIImage(systemName: "speaker.circle.fill"), for: .normal)
+        } else {
+            if let image = UIImage(systemName: "speaker.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = false
             appDelegate.music?.play()
         }
@@ -49,7 +83,17 @@ class PuzzelViewController: UIViewController {
         return true
     } // Do any additional setup after loading the view.
     
-
+    
+    @objc func popBackToRoot() {
+        navigationController?.popViewController(animated: true)
+        
+        NotificationCenter.default.post(name: Notification.Name("PushToCard"), object: nil)
+    }
+    
+    @IBAction func buttonBackPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

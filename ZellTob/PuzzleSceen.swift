@@ -1,5 +1,6 @@
 import UIKit
 import SpriteKit
+import AVFoundation
 import ImageIO
 import AudioToolbox
 
@@ -7,11 +8,11 @@ class PuzzleSceen: SKScene {
     
     var selectedNodes = [SKSpriteNode]()
     var matchedPairs = 0
-    let totalPairs = 10 
+    let totalPairs = 6
     
     override func didMove(to view: SKView) {
         print("Scene loaded")
-//        shuffleImages()
+        shuffleImages()
         if UserDefaults.standard.bool(forKey: "isCard1Open") {
             transitionToPuzzleScene2()
         }
@@ -136,7 +137,7 @@ class PuzzleSceen: SKScene {
                     let coverNode1 = SKSpriteNode(imageNamed: "tanya")
                     coverNode1.position = firstNode.position
                     coverNode1.name = "cover"
-                    coverNode1.size = CGSize(width: 136.494, height: 215.634)
+                    coverNode1.size = CGSize(width: 138, height: 273)
                     self.addChild(coverNode1)
                 }
             ]))
@@ -147,7 +148,7 @@ class PuzzleSceen: SKScene {
                     let coverNode2 = SKSpriteNode(imageNamed: "tanya")
                     coverNode2.position = secondNode.position
                     coverNode2.name = "cover"
-                    coverNode2.size = CGSize(width: 136.494, height: 215.634)
+                    coverNode2.size = CGSize(width: 138, height: 273)
                     self.addChild(coverNode2)
                 }
             ]))
@@ -156,6 +157,10 @@ class PuzzleSceen: SKScene {
         selectedNodes.removeAll()
     }
     
+//    func postNotifGameDone() {
+//        NotificationCenter.default.post(name: Notification.Name("GameDone"), object: nil)
+//    }
+//    
     func puzzleCompleted() {
         print("Puzzle completed")
         if let cardNode = self.childNode(withName: "card_1") as? SKSpriteNode {
@@ -167,6 +172,7 @@ class PuzzleSceen: SKScene {
             // Tambahkan waktu tunggu sebelum eksekusi logika berikutnya
             let wait = SKAction.wait(forDuration: 5.0) // Durasi jeda yang diinginkan
             let runBlock = SKAction.run {
+//                self.postNotifGameDone()
                 if let puzzleScene = SKScene(fileNamed: "PuzzleScene2") {
                     puzzleScene.scaleMode = .aspectFill
                     puzzleScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -184,25 +190,35 @@ class PuzzleSceen: SKScene {
     }
      
     func displayCompletionImage(_ cardNode: SKSpriteNode) {
-        cardNode.zPosition = 10
-        
+        cardNode.zPosition = 6
+
+        // Mengirim notifikasi untuk menghentikan musik latar
+        NotificationCenter.default.post(name: NSNotification.Name("PauseBackgroundMusic"), object: nil)
+
+        // Menjalankan SKAction untuk memutar suara
+        let playSound = SKAction.playSoundFileNamed("complated2.mp3", waitForCompletion: true)
+        self.run(playSound) {
+            // Menunda selama 5 detik sebelum mengirim notifikasi untuk melanjutkan musik latar
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                NotificationCenter.default.post(name: NSNotification.Name("ResumeBackgroundMusic"), object: nil)
+            }
+        }
+
         // Mengatur skala x dan y secara terpisah untuk memperbesar tinggi lebih besar dari lebar
         let scaleXAction = SKAction.scaleX(to: cardNode.xScale * 1.4, duration: 0.5)
-        let scaleYAction = SKAction.scaleY(to: cardNode.yScale * 1.6, duration: 0.5) // Perbesar lebih banyak pada sumbu y
-        
+        let scaleYAction = SKAction.scaleY(to: cardNode.yScale * 2.0, duration: 0.5) // Perbesar lebih banyak pada sumbu y
+
         // Tambahkan rotasi dan perubahan warna untuk efek yang lebih ekstrem
         let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
-//        let colorizeAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5)
-        
+        // let colorizeAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5)
+
         // Gabungkan semua aksi menjadi satu
         let groupAction = SKAction.group([scaleXAction, scaleYAction, rotateAction])
-        
+
         cardNode.run(groupAction) {
             self.displayCompletionGIF()
         }
     }
-
-    
     
     
     func displayCompletionGIF() {
@@ -240,13 +256,13 @@ class PuzzleSceen: SKScene {
     
     func shuffleImages() {
        var imageNodes = [SKSpriteNode]()
-       for i in 1...10 {
+       for i in 1...6 {
            if let imageNode = self.childNode(withName: "image_\(i)") as? SKSpriteNode {
                imageNodes.append(imageNode)
            }
        }
        
-       guard imageNodes.count == 10 else {
+       guard imageNodes.count == 6 else {
            print("Tidak semua gambar ditemukan.")
            return
        }

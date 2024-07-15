@@ -68,13 +68,23 @@ class VideoViewController: UIViewController {
     
     @IBAction func onOffSound(_ sender: Any) {
         if !isMute {
-            sound.setImage(UIImage(systemName: "speaker.slash.circle.fill"), for: .normal)
+            if let image = UIImage(systemName: "speaker.slash.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = true
             appDelegate.music?.stop()
-        }else{
-            sound.setImage(UIImage(systemName: "speaker.circle.fill"), for: .normal)
+        } else {
+            if let image = UIImage(systemName: "speaker.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = false
             appDelegate.music?.play()
         }
+    }
+    
+    @IBAction func backToHouse(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }

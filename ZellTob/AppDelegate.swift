@@ -14,20 +14,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var music: AVAudioPlayer? = {
-        guard let musicLocation = Bundle.main.url(forResource: "music", withExtension: "mp3") else{
+        guard let musicLocation = Bundle.main.url(forResource: "music", withExtension: "mp3") else {
             return nil
         }
-        let audioPlayer = try? AVAudioPlayer(contentsOf:  musicLocation)
+        let audioPlayer = try? AVAudioPlayer(contentsOf: musicLocation)
         audioPlayer?.numberOfLoops = -1
         audioPlayer?.volume = 0.4
         return audioPlayer
     }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+            // Memulai pemutaran musik latar
         music?.play()
-        
+
+        // Menambahkan observer untuk notifikasi
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseBackgroundMusic), name: NSNotification.Name("PauseBackgroundMusic"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resumeBackgroundMusic), name: NSNotification.Name("ResumeBackgroundMusic"), object: nil)
+
         return true
+    }
+    
+    @objc func pauseBackgroundMusic() {
+        music?.pause()
+    }
+
+    @objc func resumeBackgroundMusic() {
+        music?.play()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

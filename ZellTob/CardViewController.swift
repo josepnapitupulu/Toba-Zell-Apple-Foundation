@@ -13,6 +13,7 @@ class CardViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var sound: UIButton!
+    
     var isMute = false
     
     @IBOutlet weak var card1Button: UIButton!
@@ -24,9 +25,18 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCardStatus), name: .cardStatusDidChange, object: nil)
+                
+        
 //        self.navigationItem.setHidesBackButton(true, animated: true)
 
         // Do any additional setup after loading the view.
+        
+        setupCardButton(button: card1Button, isOpen: DataManager.isCard1Open)
+        setupCardButton(button: card2Button, isOpen: DataManager.isCard2Open)
+        setupCardButton(button: card3Button, isOpen: DataManager.isCard3Open)
+        setupCardButton(button: card4Button, isOpen: DataManager.isCard4Open)
+        setupCardButton(button: card5Button, isOpen: DataManager.isCard5Open)
         
         if DataManager.isCard1Open == true {
             card1Button.isEnabled = true
@@ -59,14 +69,57 @@ class CardViewController: UIViewController {
         }
     }
     
+    func setupCardButton(button: UIButton, isOpen: Bool) {
+        if isOpen {
+            button.isEnabled = true
+            button.alpha = 1.0
+            removeDarkOverlay(from: button)
+        } else {
+            button.isEnabled = false
+            button.alpha = 1.0
+            addDarkOverlay(to: button)
+        }
+    }
+    
+    func addDarkOverlay(to button: UIButton) {
+        let overlay = UIView(frame: button.bounds)
+        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        overlay.tag = 100 // Tag to identify the overlay view later
+        overlay.isUserInteractionEnabled = false
+        button.addSubview(overlay)
+    }
+    
+    func removeDarkOverlay(from button: UIButton) {
+        if let overlay = button.viewWithTag(100) {
+            overlay.removeFromSuperview()
+        }
+    }
+    
+    @objc func updateCardStatus() {
+        card1Button.isEnabled = DataManager.isCard1Open
+        card2Button.isEnabled = DataManager.isCard2Open
+        card3Button.isEnabled = DataManager.isCard3Open
+        card4Button.isEnabled = DataManager.isCard4Open
+        card5Button.isEnabled = DataManager.isCard5Open
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .cardStatusDidChange, object: nil)
+    }
     
     @IBAction func onOffSound(_ sender: Any) {
         if !isMute {
-            sound.setImage(UIImage(systemName: "speaker.slash.circle.fill"), for: .normal)
+            if let image = UIImage(systemName: "speaker.slash.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = true
             appDelegate.music?.stop()
-        }else{
-            sound.setImage(UIImage(systemName: "speaker.circle.fill"), for: .normal)
+        } else {
+            if let image = UIImage(systemName: "speaker.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = false
             appDelegate.music?.play()
         }
@@ -88,4 +141,7 @@ class CardViewController: UIViewController {
         }
     }
 
+    @IBAction func backToHouse(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }

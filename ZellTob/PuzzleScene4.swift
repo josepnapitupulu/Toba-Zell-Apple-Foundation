@@ -16,7 +16,7 @@ class PuzzleScene4: SKScene {
     
     override func didMove(to view: SKView) {
         print("Scene loaded")
-//        shuffleImages()
+        shuffleImages()
         if UserDefaults.standard.bool(forKey: "isCard4Open") {
             transitionToPuzzleScene2()
         }
@@ -189,26 +189,37 @@ class PuzzleScene4: SKScene {
             displayCompletionGIF()
         }
     }
+    
     func displayCompletionImage(_ cardNode: SKSpriteNode) {
         cardNode.zPosition = 10
-        
+
+        // Mengirim notifikasi untuk menghentikan musik latar
+        NotificationCenter.default.post(name: NSNotification.Name("PauseBackgroundMusic"), object: nil)
+
+        // Menjalankan SKAction untuk memutar suara
+        let playSound = SKAction.playSoundFileNamed("complated2.mp3", waitForCompletion: true)
+        self.run(playSound) {
+            // Menunda selama 5 detik sebelum mengirim notifikasi untuk melanjutkan musik latar
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                NotificationCenter.default.post(name: NSNotification.Name("ResumeBackgroundMusic"), object: nil)
+            }
+        }
+
         // Mengatur skala x dan y secara terpisah untuk memperbesar tinggi lebih besar dari lebar
         let scaleXAction = SKAction.scaleX(to: cardNode.xScale * 1.4, duration: 0.5)
         let scaleYAction = SKAction.scaleY(to: cardNode.yScale * 1.6, duration: 0.5) // Perbesar lebih banyak pada sumbu y
-        
+
         // Tambahkan rotasi dan perubahan warna untuk efek yang lebih ekstrem
         let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
-//        let colorizeAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5)
-        
+        // let colorizeAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5)
+
         // Gabungkan semua aksi menjadi satu
         let groupAction = SKAction.group([scaleXAction, scaleYAction, rotateAction])
-        
+
         cardNode.run(groupAction) {
             self.displayCompletionGIF()
         }
     }
-
-    
     
     
     func displayCompletionGIF() {

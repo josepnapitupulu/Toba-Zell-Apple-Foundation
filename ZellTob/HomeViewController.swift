@@ -9,7 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    
     @IBOutlet weak var sound: UIButton!
     var isMute = false
     
@@ -17,20 +16,34 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(pushToCard), name: Notification.Name("PushToCard"), object: nil)
+
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func onOffSound(_ sender: Any) {
         if !isMute {
-            sound.setImage(UIImage(systemName: "speaker.slash.circle.fill"), for: .normal)
+            if let image = UIImage(systemName: "speaker.slash.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = true
             appDelegate.music?.stop()
-        }else{
-            sound.setImage(UIImage(systemName: "speaker.circle.fill"), for: .normal)
+        } else {
+            if let image = UIImage(systemName: "speaker.circle")?.resized(to: CGSize(width: 47, height: 47)) {
+                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                sound.setImage(tintedImage, for: .normal)
+            }
             isMute = false
             appDelegate.music?.play()
         }
+    }
+    
+    
+    @objc func pushToCard() {
+        performSegue(withIdentifier: "gotoCard", sender: self)
     }
     
     /*

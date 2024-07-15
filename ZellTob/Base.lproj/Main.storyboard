@@ -62,7 +62,20 @@
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="yrJ-SX-DyB" kind="show" id="Wii-N6-5Qz"/>
+                                    <segue destination="yrJ-SX-DyB" kind="show" identifier="gotoCard" id="Wii-N6-5Qz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMx-Vs-7cr">
+                                <rect key="frame" x="320" y="55" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.29246598480000002" green="0.63091087339999996" blue="0.82356029750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="speaker.circle" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onOffSound:" destination="3Io-zT-kRu" eventType="touchUpInside" id="1G2-O4-tYu"/>
+                                    <action selector="onOffSound:" destination="a9l-wu-eGf" eventType="touchUpInside" id="N28-TS-EFr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,7 +98,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="sound" destination="ZaO-zA-5k6" id="kG4-Rw-xcc"/>
+                        <outlet property="sound" destination="iMx-Vs-7cr" id="3rs-W1-GFU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxf-DE-Ymh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -179,6 +192,30 @@
                                     <action selector="buttonPressed:" destination="yrJ-SX-DyB" eventType="touchUpInside" id="EDS-kD-L1e"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3a-GL-jsp">
+                                <rect key="frame" x="30" y="55" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.29411764709999999" green="0.63137254899999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="house.circle" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backToHouse:" destination="yrJ-SX-DyB" eventType="touchUpInside" id="3b2-SE-J8B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-VI-YFc">
+                                <rect key="frame" x="320" y="55" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.29411764709999999" green="0.63137254899999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="speaker.circle" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onOffSound:" destination="yrJ-SX-DyB" eventType="touchUpInside" id="l1h-T8-KhW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hkN-bC-L32"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -204,13 +241,13 @@
                         <outlet property="card3Button" destination="0Nc-9u-z7D" id="6dD-yM-f3k"/>
                         <outlet property="card4Button" destination="J3q-0Z-J3d" id="ikX-nI-S8u"/>
                         <outlet property="card5Button" destination="DDR-9l-kks" id="ByE-60-dDm"/>
-                        <outlet property="sound" destination="4z8-Hx-89U" id="hLm-ya-8xi"/>
+                        <outlet property="sound" destination="cBd-VI-YFc" id="Nr7-qa-406"/>
                         <segue destination="Aax-co-RL8" kind="show" identifier="gotoVideoDetail" id="Dbq-k5-L9a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeU-Qy-HLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="730"/>
+            <point key="canvasLocation" x="1562.5954198473282" y="729.57746478873241"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="rTt-oZ-to4">
@@ -234,6 +271,30 @@
                                     <action selector="playPause:" destination="Aax-co-RL8" eventType="touchUpInside" id="ebz-XP-RM3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbJ-xl-oRi">
+                                <rect key="frame" x="30" y="55" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.29411764709999999" green="0.63137254899999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="house.circle" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backToHouse:" destination="Aax-co-RL8" eventType="touchUpInside" id="83h-o3-9S2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu7-O7-jgw">
+                                <rect key="frame" x="320" y="55" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.29411764709999999" green="0.63137254899999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="speaker.circle" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onOffSound:" destination="Aax-co-RL8" eventType="touchUpInside" id="ZIu-5i-rBG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ff1-nZ-hCb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -241,7 +302,7 @@
                     <navigationItem key="navigationItem" id="ald-3w-jkP">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="MEn-yq-EdS">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Wgv-cb-h2l">
-                                <rect key="frame" x="292" y="381" width="50" height="35"/>
+                                <rect key="frame" x="327" y="4.6666666666666679" width="50" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="speaker.circle.fill" catalog="system" title="">
@@ -255,7 +316,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="pausePlayButton" destination="pW6-FZ-5Lf" id="y79-aD-lBD"/>
-                        <outlet property="sound" destination="Wgv-cb-h2l" id="L64-Su-P8M"/>
+                        <outlet property="sound" destination="mu7-O7-jgw" id="fo5-kU-N36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCG-dg-FtJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -284,27 +345,39 @@
                     <view key="view" contentMode="scaleToFill" id="7eH-dN-BE0" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPH-Rl-MYR">
+                                <rect key="frame" x="30" y="55" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.29246598480000002" green="0.63091087339999996" blue="0.82356029750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="house.circle" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonBackPressed:" destination="3Io-zT-kRu" eventType="touchUpInside" id="5TX-Gu-4NQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxu-6a-t75">
+                                <rect key="frame" x="320" y="55" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.29246598480000002" green="0.63091087339999996" blue="0.82356029750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="speaker.circle" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onOffSound:" destination="3Io-zT-kRu" eventType="touchUpInside" id="VUF-QD-1Bw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3pQ-g0-4nx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ekJ-RZ-MVj">
-                        <barButtonItem key="backBarButtonItem" title="home" image="house.circle.fill" catalog="system" id="1kk-9W-w8t"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="rN3-Vv-YVO">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vqX-YE-5aP">
-                                <rect key="frame" x="327" y="4.6666666666666679" width="50" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="speaker.circle.fill" catalog="system" title="">
-                                    <color key="baseForegroundColor" red="0.29246598480000002" green="0.63091087339999996" blue="0.82356029750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="onOffSound:" destination="3Io-zT-kRu" eventType="touchUpInside" id="ngy-0o-mag"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="sound" destination="vqX-YE-5aP" id="kKM-gb-ekc"/>
+                        <outlet property="sound" destination="Oxu-6a-t75" id="iau-gb-DzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TtH-Lc-Ixr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,10 +387,9 @@
         <!--Navigation Controller-->
         <scene sceneID="sCz-W2-9Ao">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hQK-Qd-cVh" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hQK-Qd-cVh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L6p-NW-OSf">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -341,7 +413,8 @@
         <image name="card4" width="673" height="666"/>
         <image name="card5" width="664" height="668"/>
         <image name="homeScreen" width="1080" height="1920"/>
-        <image name="house.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="house.circle" catalog="system" width="128" height="123"/>
+        <image name="speaker.circle" catalog="system" width="128" height="123"/>
         <image name="speaker.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

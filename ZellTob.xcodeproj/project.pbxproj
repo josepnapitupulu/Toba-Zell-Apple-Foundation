@@ -41,6 +41,8 @@
 		F33102E22C32C05A004A1362 /* PuzzleSceen.sks in Resources */ = {isa = PBXBuildFile; fileRef = F33102E12C32C05A004A1362 /* PuzzleSceen.sks */; };
 		F3353F8C2C32FFA300426BC1 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3353F8B2C32FFA300426BC1 /* music.mp3 */; };
 		F3353F8E2C3313FB00426BC1 /* PuzzleSceen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3353F8D2C3313FB00426BC1 /* PuzzleSceen.swift */; };
+		F3DE4F662C43EF2500F5CF9E /* complated.wav in Resources */ = {isa = PBXBuildFile; fileRef = F3DE4F652C43EF2500F5CF9E /* complated.wav */; };
+		F3DE4F682C43F09A00F5CF9E /* complated2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3DE4F672C43F09A00F5CF9E /* complated2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		F33102E12C32C05A004A1362 /* PuzzleSceen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PuzzleSceen.sks; sourceTree = "<group>"; };
 		F3353F8B2C32FFA300426BC1 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		F3353F8D2C3313FB00426BC1 /* PuzzleSceen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleSceen.swift; sourceTree = "<group>"; };
+		F3DE4F652C43EF2500F5CF9E /* complated.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = complated.wav; sourceTree = "<group>"; };
+		F3DE4F672C43F09A00F5CF9E /* complated2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = complated2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 				F322344C2C354B6A0054D4CA /* vid5.mp4 */,
 				F32234622C37D2A60054D4CA /* klick.mp3 */,
 				F32234642C37DE910054D4CA /* match.mp3 */,
+				F3DE4F652C43EF2500F5CF9E /* complated.wav */,
+				F3DE4F672C43F09A00F5CF9E /* complated2.mp3 */,
 			);
 			path = ZellTob;
 			sourceTree = "<group>";
@@ -216,9 +222,11 @@
 				F32234452C3409530054D4CA /* Congrats.gif in Resources */,
 				F33102CB2C32A9BB004A1362 /* GameScene.sks in Resources */,
 				F32234522C354B6A0054D4CA /* vid1.mp4 in Resources */,
+				F3DE4F662C43EF2500F5CF9E /* complated.wav in Resources */,
 				F3353F8C2C32FFA300426BC1 /* music.mp3 in Resources */,
 				F32234592C3558F90054D4CA /* PuzzleScene2.sks in Resources */,
 				F33102D42C32A9BB004A1362 /* Base in Resources */,
+				F3DE4F682C43F09A00F5CF9E /* complated2.mp3 in Resources */,
 				F33102D62C32A9BC004A1362 /* Assets.xcassets in Resources */,
 				F1BEDD7C2C3689200062B25E /* PuzzleScene4.sks in Resources */,
 				F33102CD2C32A9BB004A1362 /* Actions.sks in Resources */,
@@ -402,6 +410,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3JTJWZ3PMC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -409,12 +418,13 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.josep.ZellTob;
+				PRODUCT_BUNDLE_IDENTIFIER = com.josep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -429,6 +439,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3JTJWZ3PMC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -436,12 +447,13 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.josep.ZellTob;
+				PRODUCT_BUNDLE_IDENTIFIER = com.josep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
