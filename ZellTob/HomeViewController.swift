@@ -26,14 +26,14 @@ class HomeViewController: UIViewController {
     @IBAction func onOffSound(_ sender: Any) {
         if !isMute {
             if let image = UIImage(systemName: "speaker.slash.circle")?.resized(to: CGSize(width: 47, height: 47)) {
-                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                let tintedImage = image.withTintColor(UIColor(hex: "#384C28"), renderingMode: .alwaysOriginal)
                 sound.setImage(tintedImage, for: .normal)
             }
             isMute = true
             appDelegate.music?.stop()
         } else {
             if let image = UIImage(systemName: "speaker.circle")?.resized(to: CGSize(width: 47, height: 47)) {
-                let tintedImage = image.withTintColor(UIColor(hex: "#4BA1D2"), renderingMode: .alwaysOriginal)
+                let tintedImage = image.withTintColor(UIColor(hex: "#384C28"), renderingMode: .alwaysOriginal)
                 sound.setImage(tintedImage, for: .normal)
             }
             isMute = false
