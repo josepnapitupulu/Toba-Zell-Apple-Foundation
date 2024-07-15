@@ -78,6 +78,10 @@
                                     <action selector="onOffSound:" destination="a9l-wu-eGf" eventType="touchUpInside" id="N28-TS-EFr"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rules" translatesAutoresizingMaskIntoConstraints="NO" id="Q7G-0u-nvE">
+                                <rect key="frame" x="15" y="294" width="363" height="163"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qot-Qh-SZN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -98,6 +102,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="rulesImageView" destination="Q7G-0u-nvE" id="Ddj-Oc-tl9"/>
                         <outlet property="sound" destination="iMx-Vs-7cr" id="3rs-W1-GFU"/>
                     </connections>
                 </viewController>
@@ -415,6 +420,7 @@
         <image name="card5" width="664" height="668"/>
         <image name="homeScreen" width="1080" height="1920"/>
         <image name="house.circle" catalog="system" width="128" height="123"/>
+        <image name="rules" width="500" height="500"/>
         <image name="speaker.circle" catalog="system" width="128" height="123"/>
         <image name="speaker.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
